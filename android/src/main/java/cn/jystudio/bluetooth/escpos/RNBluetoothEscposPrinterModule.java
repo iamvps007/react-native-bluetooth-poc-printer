@@ -127,6 +127,15 @@ public class RNBluetoothEscposPrinterModule extends ReactContextBaseJavaModule
             promise.reject("COMMAND_NOT_SEND");
         }
     }
+    
+    @ReactMethod
+    public void fontFamily(int size,final Promise promise){
+        if(sendDataByte(PrinterCommand.POS_Set_ChoseFont(size))){
+            promise.resolve(null);
+        }else{
+            promise.reject("COMMAND_NOT_SEND");
+        }
+    }
 
 
     @ReactMethod
